@@ -1,0 +1,12 @@
+import { render, screen } from "@testing-library/react"
+import "@testing-library/jest-dom";
+import App from "./App";
+import { describe, it, expect } from "vitest";
+
+describe("App Component", () => {
+    it("should render correct headline", () => {
+        render(<App />);
+        const headlineElement = screen.getByTestId("headline");
+        expect(headlineElement.textContent).toBe("Counter React App");
+    });
+});
