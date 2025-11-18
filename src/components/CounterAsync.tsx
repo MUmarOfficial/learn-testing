@@ -1,8 +1,8 @@
-import { useState, useEffect, type FC } from 'react';
+import { useState, useEffect, type FC } from "react";
 
 export type CounterAsyncProps = {
-  fetchInitialCount: () => Promise<number>
-}
+  fetchInitialCount: () => Promise<number>;
+};
 
 
 const CounterAsync: FC<CounterAsyncProps> = ({ fetchInitialCount }) => {
