@@ -8,6 +8,9 @@ const Counter = () => {
     };
 
     const decrement = () => {
+        if(count === 0){
+            return count;
+        }
         setCount((count) => count - 1);
     };
 
