@@ -1,44 +1,35 @@
-import { useState, useEffect, type FC } from 'react';
+import { useState, useEffect } from 'react';
+import { getUsersCount } from '../api/users.api';
 
-export type CounterAsyncProps = {
-  fetchInitialCount: () => Promise<number>
-}
-
-const CounterAsync: FC<CounterAsyncProps> = ({ fetchInitialCount }) => {
+const CounterAsyncExternal = () => {
   const [count, setCount] = useState(0);
   const [loading, setLoading] = useState(false);
   const FAKE_TIMEOUT = 1500;
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchCount = async () => {
       setLoading(true);
-      const initialCount = await fetchInitialCount();
+      const initialCount = await getUsersCount();
       setCount(initialCount);
       setLoading(false);
     };
-    fetchData();
-  }, [fetchInitialCount]);
+    fetchCount();
+  }, []);
 
   const incrementAsync = () => {
     setLoading(true);
     setTimeout(() => {
       setCount((prevCount) => prevCount + 1);
       setLoading(false);
-    }, FAKE_TIMEOUT);
+    }, FAKE_TIMEOUT); // Simulate an async operation with a timeout
   };
 
   const decrementAsync = () => {
     setLoading(true);
     setTimeout(() => {
-      setCount((prevCount) => {
-        if (prevCount === 0) {
-          return prevCount;
-        } else {
-          return prevCount - 1;
-        }
-      });
+      setCount((prevCount) => prevCount + 1);
       setLoading(false);
-    }, FAKE_TIMEOUT);
+    }, FAKE_TIMEOUT); // Simulate an async operation with a timeout
   };
 
   const resetAsync = () => {
@@ -50,8 +41,8 @@ const CounterAsync: FC<CounterAsyncProps> = ({ fetchInitialCount }) => {
   }
 
   return (
-    <div className="p-6 flex flex-col justify-center items-center">
-      <h2 className="mb-10 text-xl">Async Counter</h2>
+    <div>
+      <h2 className="mb-10 text-xl">Async External Counter</h2>
       {loading ? <h3 className='text-3xl mb-8'>Loading...</h3> : <h3 className='text-3xl mb-8'>
         Count is {count}
       </h3>}
@@ -71,4 +62,4 @@ const CounterAsync: FC<CounterAsyncProps> = ({ fetchInitialCount }) => {
   );
 }
 
-export default CounterAsync;
+export default CounterAsyncExternal;

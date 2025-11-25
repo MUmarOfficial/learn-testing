@@ -19,7 +19,8 @@ const Counter = () => {
     };
 
     return (
-        <div className="m-4 p-6 flex flex-col justify-center items-center">
+        <div className="p-6 flex flex-col justify-center items-center">
+            <h2 className="mb-10 text-xl">Simple Counter</h2>
             <h2 data-testid="counterValue" className="text-3xl mb-8">
                 Count is {count}
             </h2>
