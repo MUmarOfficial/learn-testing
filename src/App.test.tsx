@@ -3,9 +3,10 @@ import App from "./App";
 import { describe, it, expect } from "vitest";
 
 describe("App Component", () => {
-    it("should render correct headline", () => {
+    it("should render correct headline", async () => {
         render(<App />);
         const headlineElement = screen.getByTestId("headline");
         expect(headlineElement.textContent).toBe("Counter React App");
+        await screen.findByText(/Count is/i);
     });
 });

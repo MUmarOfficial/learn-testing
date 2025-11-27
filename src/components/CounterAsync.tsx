@@ -52,7 +52,7 @@ const CounterAsync: FC<CounterAsyncProps> = ({ fetchInitialCount }) => {
   return (
     <div className="p-6 flex flex-col justify-center items-center">
       <h2 className="mb-10 text-xl">Async Counter</h2>
-      {loading ? <h3 className='text-3xl mb-8'>Loading...</h3> : <h3 className='text-3xl mb-8'>
+      {loading ? <h3 className='text-3xl mb-8'>Loading...</h3> : <h3 className='text-3xl mb-8' data-testid="countValue">
         Count is {count}
       </h3>}
       <div className="actions flex gap-4 items-center">
@@ -66,7 +66,6 @@ const CounterAsync: FC<CounterAsyncProps> = ({ fetchInitialCount }) => {
           Increment
         </button>
       </div>
-
     </div>
   );
 }
