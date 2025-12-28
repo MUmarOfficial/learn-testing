@@ -1,6 +1,7 @@
 import Counter from "./components/Counter";
 import CounterAsync from "./components/CounterAsync";
 import "./App.css";
+import CounterAsyncExternal from "./components/CounterAsyncExternal";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
             return Promise.resolve(10);
           }}
         />
+        <CounterAsyncExternal/>
       </div>
     </>
   );

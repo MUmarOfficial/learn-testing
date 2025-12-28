@@ -41,7 +41,7 @@ const CounterAsyncExternal = () => {
   }
 
   return (
-    <div>
+    <div className="p-6 flex flex-col justify-center items-center">
       <h2 className="mb-10 text-xl">Async External Counter</h2>
       {loading ? <h3 className='text-3xl mb-8'>Loading...</h3> : <h3 className='text-3xl mb-8'>
         Count is {count}
