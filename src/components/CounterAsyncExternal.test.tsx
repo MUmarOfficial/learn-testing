@@ -17,17 +17,21 @@ vi.useFakeTimers({
 describe("CounterAsyncExternal component", () => {
 
     beforeEach(() => {
+        vi.mocked(getUsersCount).mockResolvedValue(10);
         render(<CounterAsyncExternal />);
     });
 
     it("should render the initial value from fetchInitialCount", async () => {
         const loadingElement = screen.getByText("Loading...");
         expect(loadingElement).toBeInTheDocument();
+        vi.advanceTimersByTime(1500);
         const countValueElement = await screen.findByTestId("countValue");
         expect(countValueElement.textContent).toBe("Count is 10");
     });
 
     it("should increment the value on increment btn click", async () => {
+        vi.advanceTimersByTime(1500);
+
         const countValueElement = await screen.findByTestId("countValue");
         expect(countValueElement.textContent).toBe("Count is 10");
         act(() => {
@@ -44,6 +48,7 @@ describe("CounterAsyncExternal component", () => {
     });
 
     it("should decrement the value on decrement btn click", async () => {
+        vi.advanceTimersByTime(1500);
         const countValueElement = await screen.findByTestId("countValue");
         expect(countValueElement.textContent).toBe("Count is 10");
         act(() => {
@@ -60,6 +65,7 @@ describe("CounterAsyncExternal component", () => {
     });
 
     it("should reset the value on reset btn click", async () => {
+        vi.advanceTimersByTime(1500);
         const countValueElement = await screen.findByTestId("countValue");
         expect(countValueElement.textContent).toBe("Count is 10");
         act(() => {
