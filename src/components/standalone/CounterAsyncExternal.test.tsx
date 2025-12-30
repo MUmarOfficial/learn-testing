@@ -2,9 +2,9 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, it, expect, beforeEach, vi } from "vitest";
 import CounterAsyncExternal from "./CounterAsyncExternal";
 import { act } from "react";
-import { getUsersCount } from '../api/users.api';
+import { getUsersCount } from "../../api/users.api";
 
-vi.mock("../api/users.api", () => {
+vi.mock("../../api/users.api", () => {
     return {
         getUsersCount: vi.fn(),
     }

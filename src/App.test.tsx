@@ -6,7 +6,7 @@ describe("App Component", () => {
     it("should render correct headline", async () => {
         render(<App />);
         const headlineElement = screen.getByTestId("headline");
-        expect(headlineElement.textContent).toBe("Counter React App");
+        expect(headlineElement.textContent).toBe("Guess the number");
         await screen.findByText(/Count is/i);
     });
 });
