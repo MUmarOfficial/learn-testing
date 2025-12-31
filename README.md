@@ -1,3 +1,3 @@
-# Vitest + React-testing-library
+# Vitest + React-testing-library + Playwright
 
-This is simple react counter app used to learn testing using Vitest and React-testing-library.
+This is a simple react guesser game app used to learn testing using Vitest and React-testing-library, and Playwright.
