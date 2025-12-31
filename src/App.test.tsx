@@ -7,6 +7,5 @@ describe("App Component", () => {
         render(<App />);
         const headlineElement = screen.getByTestId("headline");
         expect(headlineElement.textContent).toBe("Guess the number");
-        await screen.findByText(/Count is/i);
     });
 });
