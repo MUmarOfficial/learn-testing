@@ -1,9 +1,8 @@
 import { act, fireEvent, render, screen } from "@testing-library/react"
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 import GuesserContainer from "./GuesserContainer";
 import { type ReactNode } from "react";
 import { GuesserContextProvider } from "./GuesserContext";
-import { beforeEach } from "node:test";
 
 vi.mock("../../lib/randomizer.ts", () => {
     return {
@@ -31,7 +30,7 @@ const guessANumber = (val: string) => {
         });
         fireEvent.click(submitBtn);
     });
-}
+};
 
 describe("GuesserContainer component", () => {
 
